@@ -112,7 +112,7 @@ void handleWinner(STATE* state, CUSTOMER* winnerCustomer)//det här är en mall fö
     
 }
 
-void winner(STATE* state, int allTheMoney)// den här väljer ut en vinnare och sätter vår winningCustomer som det index i listan som vi tilldelade innan.
+void winner(STATE* state, int allTheMoney)// den här väljer ut en vinnare och sätter vår winningCustomer som det index i listan som vi tilldelade innan..
 {
     CUSTOMER winnerCustomer;
     allTheMoney = totalMoneyz(state);
