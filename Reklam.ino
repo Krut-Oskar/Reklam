@@ -44,7 +44,8 @@ void setup()
     start(&state);
     
 }
-void start(STATE* state) {
+void start(STATE* state) //den här startar upp alla customers och körs en gång i setup den lägger även till alla i vår lista som vi använder i winner().
+{
     CUSTOMER harry;
     strcpy(harry.name, "Hederlige Harrys Bilar");
     harry.money = 5000;
@@ -91,7 +92,7 @@ void start(STATE* state) {
 
 }
 
-int totalMoneyz(STATE* state)
+int totalMoneyz(STATE* state)// den här räknar bara ut totalt antal pengar, summerar alltihop.
 {
     int allTheMoney;
     for (int i = 0; i < state->numOfCustomers; i++)
@@ -101,7 +102,7 @@ int totalMoneyz(STATE* state)
     return allTheMoney;
 
 }
-void handleWinner(STATE* state, CUSTOMER* winnerCustomer)
+void handleWinner(STATE* state, CUSTOMER* winnerCustomer)//det här är en mall för hur vi ska hämta messages från varje customer. Vi ska göra en sån här för varje customer
 {
     int randomIndex = random(0, 6);//det här är för att vi har 5 möjliga messages i vår struct.
     char getMessage[50];
@@ -111,7 +112,7 @@ void handleWinner(STATE* state, CUSTOMER* winnerCustomer)
     
 }
 
-void winner(STATE* state, int allTheMoney)
+void winner(STATE* state, int allTheMoney)// den här väljer ut en vinnare och sätter vår winningCustomer som det index i listan som vi tilldelade innan.
 {
     CUSTOMER winnerCustomer;
     allTheMoney = totalMoneyz(state);
@@ -136,7 +137,7 @@ void winner(STATE* state, int allTheMoney)
     {
         winnerCustomer = lista[4];
     }
-    handleWinner(state, winnerCustomer);
+    handleWinner(state, &winnerCustomer);
 
 }
 
